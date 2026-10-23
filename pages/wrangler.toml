@@ -1,0 +1,9 @@
+name = "relay-todo-demo"
+compatibility_date = "2026-10-22"
+# Same static files as local `wrangler dev`; Pages serves them for free.
+pages_build_output_dir = "../public"
+
+# /api/* and /agent/connect are forwarded to the gateway Worker (see pages/lib/forward.js).
+[[services]]
+binding = "GATEWAY"
+service = "relay-todo-demo-gateway"

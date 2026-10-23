@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relay Todo Demo</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <main class="card">
+    <header class="header">
+      <div>
+        <h1>Relay Todo Demo</h1>
+        <p class="subtitle">pages.dev → Durable Object ⇄ WSS ⇄ 本机 agent → 内网 API</p>
+      </div>
+      <button id="logout" class="link" type="button" hidden>退出</button>
+    </header>
+
+    <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+
+    <form id="token-form" class="row" hidden>
+      <label class="sr-only" for="token-input">访问口令</label>
+      <input id="token-input" type="password" autocomplete="current-password" placeholder="输入访问口令" required>
+      <button type="submit">进入</button>
+    </form>
+
+    <section id="app" hidden>
+      <form id="new-form" class="row">
+        <label class="sr-only" for="new-title">新待办</label>
+        <input id="new-title" maxlength="200" placeholder="要做什么？回车添加" required>
+        <button type="submit">添加</button>
+      </form>
+      <p id="empty" class="muted" hidden>暂无待办</p>
+      <ul id="list" class="list"></ul>
+      <footer class="muted footer">
+        <span id="count"></span>
+        <button id="refresh" class="link" type="button">刷新</button>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>

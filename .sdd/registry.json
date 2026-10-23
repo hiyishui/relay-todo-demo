@@ -1,0 +1,14 @@
+{
+  "active": [],
+  "completed": [
+    {
+      "id": "R-20261023-relay-todo-demo",
+      "path": ".sdd/completed/R-20261023-relay-todo-demo",
+      "status": "COMPLETED",
+      "currentMilestone": null,
+      "currentTask": null,
+      "updated": "2026-10-23"
+    }
+  ],
+  "archived": []
+}

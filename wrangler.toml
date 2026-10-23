@@ -1,0 +1,26 @@
+name = "relay-todo-demo-gateway"
+main = "worker/index.js"
+compatibility_date = "2026-10-22"
+# The public entry is the Pages project (pages/). This Worker has no public URL and is only reachable
+# through the Pages Service binding; some networks cannot resolve workers.dev anyway.
+workers_dev = false
+preview_urls = false
+
+# Only used by local `wrangler dev` to serve the page; the deployed Worker has no public route.
+[assets]
+directory = "./public"
+run_worker_first = ["/api/*", "/agent/*"]
+not_found_handling = "404-page"
+
+[observability]
+enabled = true
+
+# Holds the agent's WebSocket and relays API requests over it. The Free plan only supports
+# SQLite-backed Durable Objects, hence new_sqlite_classes (the class stores nothing).
+[[durable_objects.bindings]]
+name = "RELAY"
+class_name = "AgentRelay"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["AgentRelay"]

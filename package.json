@@ -1,0 +1,22 @@
+{
+  "name": "relay-todo-demo",
+  "private": true,
+  "type": "module",
+  "description": "Static site on pages.dev; CRUD API served from an intranet machine through an outbound WSS (443) relay on a Cloudflare Durable Object",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "dev": "wrangler dev --ip 127.0.0.1 --port 8787",
+    "start": "node scripts/start.mjs",
+    "deploy": "node scripts/deploy.mjs",
+    "check": "node scripts/check.mjs",
+    "api": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning intranet-api/server.mjs",
+    "agent": "node --env-file-if-exists=.env agent/main.mjs",
+    "test": "node --test --disable-warning=ExperimentalWarning tests/*.test.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.152.0"
+  }
+}
